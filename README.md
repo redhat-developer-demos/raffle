@@ -21,6 +21,8 @@ Run with
     
 Access the URL: `http://localhost:8080/<hashtag for the raffle>`
 
+NOTE: Under the [Standard Search  API](https://developer.twitter.com/en/docs/tweets/search/overview), only the 7 last days are included in the result.
+
 ## Criteria for the Raffle
 
 - The Tweet must contain specified #hashtag that you defined (part of the query string)
