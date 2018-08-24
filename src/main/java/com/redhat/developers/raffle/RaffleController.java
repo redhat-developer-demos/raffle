@@ -37,17 +37,24 @@ public class RaffleController {
     public void endpoint(@PathVariable("user") String user,
                          @PathVariable("hashtag") String hashtag,
                          HttpServletResponse response)
-            throws IOException, TwitterException {
+            throws IOException {
         PrintWriter writer = response.getWriter();
         writer.write("<html>");
 //        String queryString = "#" + hashtag + " @" + user + " filter:media -filter:retweets";
         String queryString = "#" + hashtag + " -filter:retweets";
         log.info("Query String: " + queryString);
-        List<String> users = performQuery(queryString, writer);
-        writer.write("Enabled users: " + users);
-        performRaffle(users, writer);
-        writer.write("</html>");
-        writer.flush();
+        try{
+            List<String> users = performQuery(queryString, writer);
+            writer.write("Enabled users: " + users);
+            performRaffle(users, writer);
+        }
+        catch(TwitterException te){
+            te.printStackTrace();
+            writer.write("ERROR: " + te.getMessage());
+        }finally {
+            writer.write("</html>");
+            writer.flush();
+        }
     }
 
     private void performRaffle(List<String> users, PrintWriter writer) {

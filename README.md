@@ -19,4 +19,11 @@ Run with
 
     mvn spring-boot:run
     
-Access the URL: http://localhost:8080/`<your username>`/`<hashtag for the raffle>`
+Access the URL: `http://localhost:8080/<your username>/<hashtag for the raffle>`
+
+## Criteria for the Raffle
+
+- It must Tweet the specified #hashtag that you defined
+- It must Tweet a picture of your presentation
+- It must be your follower
+- It must not be a RT
