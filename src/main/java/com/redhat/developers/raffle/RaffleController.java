@@ -49,9 +49,9 @@ public class RaffleController {
 
     private String getQueryString(String hashtag) throws TwitterException {
         // Must mention you, with a hashtag, a picture and must not be a RT
-        //String queryString = "@" + twitter.getScreenName() + " #" + hashtag + "  filter:media -filter:retweets";
+        String queryString = "@" + twitter.getScreenName() + " #" + hashtag + "  filter:media -filter:retweets";
         // For TEST only
-        String queryString = "@openshift #" + hashtag + " -filter:retweets";
+        //String queryString = "@openshift #" + hashtag + " -filter:retweets";
         log.info("Query String: " + queryString);
         return queryString;
     }
