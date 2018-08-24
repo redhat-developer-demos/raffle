@@ -64,7 +64,7 @@ public class RaffleController {
         writer.write("<h2>And the Winner is....</h2>");
         writer.write("<h3><a href='https://twitter.com/"  + winnnerUser + "'>@" + winnnerUser + "</a></h3>");
         writer.write("<b>Follows you? </b>" +  relationship.isSourceFollowedByTarget());
-        writer.write("<h4>His Tweets:</h4>");
+        writer.write("<h4>Tweets from this user:</h4>");
         List<Status> userTweets = tweets.get(winnnerUser);
         for (Status tweet: userTweets){
             writer.write("<b>@" + winnnerUser + "</b> " +
