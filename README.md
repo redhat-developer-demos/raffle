@@ -23,8 +23,8 @@ Access the URL: `http://localhost:8080/<hashtag for the raffle>`
 
 ## Criteria for the Raffle
 
-- The Tweet must contain specified #hashtag that you defined
-- The Tweet must mention your username
-- The Tweet must have a picture of your presentation
-- The Tweet must not be a RT
-- The user must be your follower
+- The Tweet must contain specified #hashtag that you defined (part of the query string)
+- The Tweet must mention your username (part of the query string)
+- The Tweet must have a picture of you (part of the query string)
+- The Tweet must not be a RT (part of the query string)
+- The user must be your follower (optional)
