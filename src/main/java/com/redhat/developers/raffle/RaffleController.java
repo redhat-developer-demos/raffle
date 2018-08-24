@@ -36,7 +36,11 @@ public class RaffleController {
             Map<String, List<Status>> tweets = performQuery(queryString, writer);
             writer.write("<h3>Enabled users: </h3>");
             writer.write(users4Raffle.toString());
-            performRaffle(tweets, writer);
+            if (tweets.size() > 0){
+                performRaffle(tweets, writer);
+            }else{
+                writer.write("No elegible Tweets found!");
+            }
         }
         catch(twitter4j.TwitterException te){
             te.printStackTrace();
@@ -61,6 +65,8 @@ public class RaffleController {
         List<String> usersList = new ArrayList<>(users4Raffle);
         String winnnerUser = usersList.get(rand.nextInt(usersList.size()));
         Relationship relationship = twitter.showFriendship(twitter.getScreenName(), winnnerUser);
+        RateLimitStatus limit = relationship.getRateLimitStatus();
+        log.info(String.format("Rate Limit for Relationship: %s/%s. Reset in %s seconds", limit.getRemaining(), limit.getLimit(), limit.getSecondsUntilReset()));
         writer.write("<h2>And the Winner is....</h2>");
         writer.write("<h3><a href='https://twitter.com/"  + winnnerUser + "'>@" + winnnerUser + "</a></h3>");
         writer.write("<b>Follows you? </b>" +  relationship.isSourceFollowedByTarget());
@@ -82,6 +88,8 @@ public class RaffleController {
         writer.write("<h3>Found the following users and tweets: </h3><br/><hr/>");
         do {
             result = twitter.search(query);
+            RateLimitStatus limit = result.getRateLimitStatus();
+            log.info(String.format("Rate Limit for Query: %s/%s. Reset in %s seconds", limit.getRemaining(), limit.getLimit(), limit.getSecondsUntilReset()));
             List<Status> tweets = result.getTweets();
             for (Status tweet : tweets) {
                 User u = tweet.getUser();
