@@ -1,5 +1,5 @@
 # Raffle
-
+Rest application that performs a raffle using Twitter
 
 ## Configuring the application
 Before using this app, go to <https://developer.twitter.com/en/apps> and create an App. (You might need to apply for a developer account)
