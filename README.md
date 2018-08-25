@@ -13,6 +13,11 @@ Fill the fields:
 
 For the new App, Get the Consumer API keys, Access token & access token secret (you might need to generate them), and place it in the src/main/resources/twitter4j.properties (DON'T COMMIT THIS FILE AS IT CONTAINS SENSITIVE DATA)
 
+Run the following command after cloning this repo to avoid accidental commits of this file.
+
+    git update-index --assume-unchanged src/main/resources/twitter4j.properties
+    
+
 ## Executing the application
 
 Run with
