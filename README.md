@@ -11,7 +11,7 @@ Fill the fields:
 - Website URL: https://developers.redhat.com
 - Tell us how this app will be used: This app will search for specific hashtags and check if the user who posted the tweeter follows me and has a posted a picture.
 
-For the new App, Get the Consumer API keys, Access token & access token secret (you might need to generate them), and place it on the twitter4j.properties
+For the new App, Get the Consumer API keys, Access token & access token secret (you might need to generate them), and place it in the src/main/resources/twitter4j.properties (DON'T COMMIT THIS FILE AS IT CONTAINS SENSITIVE DATA)
 
 ## Executing the application
 
