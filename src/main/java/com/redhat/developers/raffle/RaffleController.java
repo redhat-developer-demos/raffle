@@ -55,13 +55,13 @@ public class RaffleController {
         // Must mention you, with a hashtag, a picture and must not be a RT
         String queryString = "@" + twitter.getScreenName() + " #" + hashtag + "  filter:media -filter:retweets";
         // For TEST only
-        //String queryString = "@openshift #" + hashtag + " -filter:retweets";
+        // String queryString = "@openshift #" + hashtag + "  -filter:retweets";
         log.info("Query String: " + queryString);
         return queryString;
     }
 
     private void performRaffle(Map<String, List<Status>> tweets, PrintWriter writer) throws TwitterException {
-        Random rand = new Random();
+        Random rand = new Random(System.currentTimeMillis());
         List<String> usersList = new ArrayList<>(users4Raffle);
         String winnnerUser = usersList.get(rand.nextInt(usersList.size()));
         Relationship relationship = twitter.showFriendship(twitter.getScreenName(), winnnerUser);
